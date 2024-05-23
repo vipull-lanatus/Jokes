@@ -6,8 +6,18 @@ let getJoke = async () => {
   try {
     app.innerHTML = "";
 
-    let joke = await fetch("https://v2.jokeapi.dev/joke/Programming");
-    let jokeJson = await joke.json();
+    let = jokeJson = {}
+
+    while(true) {
+      let joke = await fetch("https://v2.jokeapi.dev/joke/Programming");
+      data = await joke.json();
+
+      if(!data?.flags?.nsfw) {
+        jokeJson = data;
+        break;
+      }
+    }
+    
     if (jokeJson.type == "twopart") {
       // setup
 
